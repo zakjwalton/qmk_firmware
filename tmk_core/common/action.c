@@ -44,6 +44,10 @@ int retro_tapping_counter = 0;
 #include <fauxclicky.h>
 #endif
 
+/** \brief Called to execute an action.
+ *
+ * FIXME: Needs documentation.
+ */
 void action_exec(keyevent_t event)
 {
     if (!IS_NOEVENT(event)) {
@@ -94,6 +98,10 @@ void action_exec(keyevent_t event)
 #ifdef ONEHAND_ENABLE
 bool swap_hands = false;
 
+/** \brief Process Hand Swap
+ *
+ * FIXME: Needs documentation.
+ */
 void process_hand_swap(keyevent_t *event) {
     static swap_state_row_t swap_state[MATRIX_ROWS];
 
@@ -132,6 +140,10 @@ bool process_record_quantum(keyrecord_t *record) {
     return true;
 }
 
+/** \brief Take a key event (key press or key release) and processes it.
+ *
+ * FIXME: Needs documentation.
+ */
 void process_record(keyrecord_t *record)
 {
     if (IS_NOEVENT(record->event)) { return; }
@@ -150,6 +162,10 @@ void process_record(keyrecord_t *record)
     process_action(record, action);
 }
 
+/** \brief Take an action and processes it.
+ *
+ * FIXME: Needs documentation.
+ */
 void process_action(keyrecord_t *record, action_t action)
 {
     keyevent_t event = record->event;
@@ -638,8 +654,9 @@ void process_action(keyrecord_t *record, action_t action)
 
 
 
-/*
- * Utilities for actions.
+/** \brief Utilities for actions. (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
  */
 void register_code(uint8_t code)
 {
@@ -719,6 +736,10 @@ void register_code(uint8_t code)
     }
 }
 
+/** \brief Utilities for actions. (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
+ */
 void unregister_code(uint8_t code)
 {
     if (code == KC_NO) {
@@ -774,6 +795,10 @@ void unregister_code(uint8_t code)
     }
 }
 
+/** \brief Utilities for actions. (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
+ */
 void register_mods(uint8_t mods)
 {
     if (mods) {
@@ -782,6 +807,10 @@ void register_mods(uint8_t mods)
     }
 }
 
+/** \brief Utilities for actions. (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
+ */
 void unregister_mods(uint8_t mods)
 {
     if (mods) {
@@ -790,12 +819,20 @@ void unregister_mods(uint8_t mods)
     }
 }
 
+/** \brief Utilities for actions. (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
+ */
 void clear_keyboard(void)
 {
     clear_mods();
     clear_keyboard_but_mods();
 }
 
+/** \brief Utilities for actions. (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
+ */
 void clear_keyboard_but_mods(void)
 {
     clear_weak_mods();
@@ -812,6 +849,10 @@ void clear_keyboard_but_mods(void)
 #endif
 }
 
+/** \brief Utilities for actions. (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
+ */
 bool is_tap_key(keypos_t key)
 {
     action_t action = layer_switch_get_action(key);
@@ -844,14 +885,19 @@ bool is_tap_key(keypos_t key)
 }
 
 
-/*
- * debug print
+/** \brief Debug print (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
  */
 void debug_event(keyevent_t event)
 {
     dprintf("%04X%c(%u)", (event.key.row<<8 | event.key.col), (event.pressed ? 'd' : 'u'), event.time);
 }
 
+/** \brief Debug print (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
+ */
 void debug_record(keyrecord_t record)
 {
     debug_event(record.event);
@@ -860,6 +906,10 @@ void debug_record(keyrecord_t record)
 #endif
 }
 
+/** \brief Debug print (FIXME: Needs better description)
+ *
+ * FIXME: Needs documentation.
+ */
 void debug_action(action_t action)
 {
     switch (action.kind.id) {
